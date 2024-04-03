@@ -1,5 +1,7 @@
 30 THÁNG 3 2024 ĐẾN 5 THÁNG 3 2024
 
+CHỈ GHI CHÚ TUẦN NÀY - CHỈ GHI CHÚ TUẦN NÀY
+
 **##1)OPTIONAL CHAINING JS :##**
 
 Optional chaining rất đơn giản đó là cú pháp [ ?. ] để truy cập vào các thuộc tính lồng nhau trong obj (nó an toàn và ngắn gọn hơn cách truyền thống : giảm thiểu nhu cầu dùng if else để kiểm tra thuộc tính null hay undefined trước khi truy cập thuộc tính)
@@ -39,17 +41,39 @@ phương thức này sẽ tìm đối tượng trong global xem có cái nào t�
 
 **##3) Sort() :##**
 
-+ Hàm sort sắp xếp phần tử theo bảng chữ cái dùng sort()
+- Hàm sort sắp xếp phần tử theo bảng chữ cái dùng sort()
 
-3.1 **Viết hàm tăng dần/ giảm dần trước khi sort**
+  3.1 **Viết hàm tăng dần/ giảm dần trước khi sort**
 
-    + a - b > 0 nghĩa là a > b => a đưng trước b
-    + a - b < 0 nghĩa là a < b => a đứng sau b
-    + a - b = 0 nghĩa là a = b => giữ nguyên vị trí
+      + a - b > 0 nghĩa là a > b => a đưng trước b
+      + a - b < 0 nghĩa là a < b => a đứng sau b
+      + a - b = 0 nghĩa là a = b => giữ nguyên vị trí
 
 Tương tự với TH giảm dần
 
+3.2 **7 thuật toán sắp xếp**
 
+**GIẢI THÍCH function : sort selection**
 
+ví dụ dãy số lộn xộn từ 1 tới 9, thì có 8 vị trí. Mình xếp vị trí thứ nhất thì duyệt xem số nhỏ nhất của 8 con số này là số mấy, có được rồi thì tiếp vị trí 2, lúc này còn lại chỉ có 7 vị trí .. cứ như v tới hết
 
+Giải thích về function : có 2 vòng for, một vòng for để thể hiện giá trị hiện tại, một vòng for để xét giá trị kế bên để so sánh. Xong rồi đổi chỗ cho nhau, giá trị lớn hơn thì ghi đè
 
+**Sắp xếp theo tiếng Việt bảng chữ cái**
+
+Dùng localeCompare()
+
+4 **For each là gì**
+
+Là phương thức có sẵn của array để duyệt qua mỗi phần tử
+
+Ưu điểm : ngắn gọn, nhược điểm : code chạy chậm hơn nhưng ko đáng kể
+
+- Format 1 : forEach(array, function(){})
+- Format 2 : array.forEach(function(){})
+
+\_ Thường tính tổng các số cộng lại với nhau trong một mảng cũng nên dùng forEach để tránh đặt biến i bị trùng và ngắn gọn hơn
+
+\_ Không thể dùng từ khóa **break** trong javascript => lúc này dùng phương thức **arr.some()** return true để duyệt từng phần tử và dừng lại theo điều kiện
+
+**4.1 Continue trong forEach**
