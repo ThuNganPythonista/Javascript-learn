@@ -171,6 +171,29 @@ Vậy : accumulator + currentValue
 
 OK !! Vậy khi dùng concat() ở chỗ [1,2,3] + [4,5] thì nó được nối với nhau trước khi nó bị biến thành STRING
 
+**5.11: includes()**
+
 **6. Symbol.iterator**
 
-Ví dụ array và string là iterable vì nó dùng for .. of được, nhưng object thì không
+Ví dụ : in ra range(1,10) thì
+
+<!-- for (const i of range(0, 100)) {
+    console.log(i);
+} -->
+
+NÓ SẼ BÁO LỖI
+
+Thường in ra range của một mảng array hay string ở js, thì ta dùng for ... of. Tuy nhiên object range dùng for .. of nó sẽ báo lỗi. Vì vậy ta dùng hàm next() với hai thuộc tính là value và boolean. Khi nào from đụng giá trị to thì boolean done thì trả về true thì dừng.
+
+<!-- const range = (from, to) => {
+    return {
+        [Symbol.iterator]: function() { return this; },
+        next: function() {
+            if (from < to) {
+                from++;
+                return { value: from - 1, done: false };
+            }
+            return { done: true };
+        }
+    }
+}; -->
