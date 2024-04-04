@@ -103,3 +103,83 @@ arr.some(function (item, index) {
   if (index === 3) return true; // nếu index = 3 thì dừng
   console.log("i=", index);
 });
+
+//continue
+
+const arr2 = [1, 2, 3, 4, 5];
+
+for (let i = 0; i < arr.length; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}
+
+//return
+
+const arr3 = [1, 2, 3, 4, 5];
+arr3.forEach(function (item, i) {
+  //mặc định tham số lần lượt ở đây là item, index, array rồi
+  if (i === 3) return;
+  console.log(item);
+});
+
+//every
+
+function condition_Meet(item, index) {
+  return item > 10;
+}
+console.log(arr3.evevry(condition_Meet));
+
+//filter
+
+function isBigEnough(element, index, array) {
+  return element >= 10;
+}
+arr = [12, 5, 8, 130, 44];
+console.log(arr.filter(isBigEnough));
+
+//find
+
+function isBigEnough(element, index, array) {
+  return element >= 10;
+}
+arr = [12, 5, 8, 130, 44];
+console.log(arr.find(isBigEnough)); // y chang filter nhưng chỉ trả về 1 phần tử đầu thôi
+
+//findIndex
+
+function isBigEnough(element, index, array) {
+  return element >= 10;
+}
+arr = [12, 5, 8, 130, 44];
+console.log(arr.findIndex(isBigEnough));
+
+//map (true/false)
+
+function isBigEnough(element, index, array) {
+  return element >= 100;
+}
+arr = [12, 5, 8, 130, 44];
+console.log(arr.map(isBigEnough));
+
+// map (new arr)
+const numBers = [1, 4, 9];
+const roots = numBers.map(Math.sqrt);
+
+console.log(roots);
+console.log(numBers);
+
+// reduce()
+
+const num_bers = [1, 2, 3, 4, 5];
+const su_m = num_bers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue
+);
+
+console.log(su_m);
+
+//concat ()
+
+var projec1 = ["PHP", "CSS"];
+var projec2 = ["HTML", "Python", "JS"];
+var children = projec1.concat(projec2);
+console.log(children);
