@@ -122,28 +122,29 @@ Thường phương thức này kết hợp với for ... of để cho ra kết q
 
   +TH1: có initialValue
 
-<!-- arr = [1,2,3,4,5]
+arr = [1,2,3,4,5]
 
     Array.prototype.reduce = function(callback,result){
     for (let i =0; i<this.length;i++){
         result = callback(result, this[i], i, this) // result là biến dự trữ, this[i] là current value
         // ví dụ cái lần chạy thứ nhất result = 1, this [i] = 2 thì result sẽ là 3 ở lần chạy thứ hai, vậy this[i] ở lần chạy thứ 2 sẽ là 3, vậy 3+3 = 6. ở lần chạy thứ 3 thì this[i]=4, nên result = 6+4=10, cứ như vậy
         }
-} -->
+
+}
 
     + TH2 : Không có initialValue
 
-<!-- Array.prototype.reduce = function(callback,result){
-        let i = 0;
-        if (arguments.length<2){
-            // argument là biến đặc biệt trong js để truy cập đối tượng argument, nếu không có initialValue thì argument < 2
-            i = 1       // nếu không truyền initialValue thì biến của ta sẽ là phần tử đầu tiên của mảng là result = this[0] còn i sẽ = 1 để this[i] biến hiện tại là phần tử thứ hai của mảng.
-            result = this[0]
-        }
-    for (;i<this.length;i++){
-        result = callback(result, this[i], i, this)
-        }
-}  -->
+Array.prototype.reduce = function(callback,result){
+let i = 0;
+if (arguments.length<2){
+// argument là biến đặc biệt trong js để truy cập đối tượng argument, nếu không có initialValue thì argument < 2
+i = 1 // nếu không truyền initialValue thì biến của ta sẽ là phần tử đầu tiên của mảng là result = this[0] còn i sẽ = 1 để this[i] biến hiện tại là phần tử thứ hai của mảng.
+result = this[0]
+}
+for (;i<this.length;i++){
+result = callback(result, this[i], i, this)
+}
+}
 
 - Thường reduce() dùng để tính tổng, hiệu, tích thương .. của một array. Một hàm của nó gồm giá trị tích lũy và giá trị hiện tại để cộng dồn. Tuy nhiên, nó còn có giá trị khởi tạo nữa. ví dụ tổng phần tử là 10 và mình đặt giá trị khởi tạo là 10, thì tổng là 20.
 
@@ -192,14 +193,14 @@ slice(): Trích xuất một phần của mảng thành một mảng mới
 
 Ví dụ : in ra range(1,10) thì python dùng range nhưng js thì không
 
-<!-- let range = {
-  from: 1,
-  to: 5,
+let range = {
+from: 1,
+to: 5,
 };
 
 for (let num of range) {
-  console.log(num);
-} -->
+console.log(num);
+}
 
 NÓ SẼ BÁO LỖI
 
@@ -207,27 +208,26 @@ Thường in ra range của một mảng array hay string ở js, thì ta dùng 
 
 Vậy để có thể dùng for ... of thì ta sẽ làm như sau
 
-<!--
 let range = {
-  from: 1,
-  to: 5,
-  [Symbol.iterator]() {
-    return {
-      current: this.from,
-      last: this.to,
-      next() {
-        if (this.current <= this.last) {
-          return { done: false, value: this.current++ };
-        } else {
-          return { done: true };
-        }
-      },
-    };
-  },
+from: 1,
+to: 5,
+[Symbol.iterator]() {
+return {
+current: this.from,
+last: this.to,
+next() {
+if (this.current <= this.last) {
+return { done: false, value: this.current++ };
+} else {
+return { done: true };
+}
+},
+};
+},
 };
 for (let num of range) {
-  console.log(num);
-}  -->
+console.log(num);
+}
 
 Vậy là for .. of được range từ 1 -> 5 rồi
 
@@ -235,15 +235,15 @@ Vậy là for .. of được range từ 1 -> 5 rồi
 
 Này biết thêm thôi để hiểu cách symbol iterator hoạt động thôi @\_@ Dùng for ... of được thì dùng thôi, chứ cái này không bao giờ áp dụng trong thực tế
 
-<!-- let str = "Hello";
+let str = "Hello";
 
 let iterator = str[Symbol.iterator]();
 
 while (true) {
-  let result = iterator.next();
-  if (result.done) break;
-  console.log(result.value);
-} -->
+let result = iterator.next();
+if (result.done) break;
+console.log(result.value);
+}
 
 **6.2 Array.from(tên OBJECT)**
 
@@ -253,16 +253,16 @@ while (true) {
 
 **6.3 Iterable Object thành array**
 
-<!-- let range = {
-  from: 1,
-  to: 5,
+let range = {
+from: 1,
+to: 5,
 
-  // phương thức `Symbol.iterator`
-  [Symbol.iterator]() {
-    // phương thức này trả về một iterator object - object có phương thức next
-    return {
-      current: this.from,
-      last: this.to,
+// phương thức `Symbol.iterator`
+[Symbol.iterator]() {
+// phương thức này trả về một iterator object - object có phương thức next
+return {
+current: this.from,
+last: this.to,
 
       // khi for...of cần giá trị tiếp theo thì nó sẽ gọi phương thức next
       next() {
@@ -276,11 +276,12 @@ while (true) {
         }
       },
     };
-  },
+
+},
 };
 
 let arr = Array.from(range);
-console.log(arr); --> [1,2,3,4,5]
+console.log(arr); [1,2,3,4,5]
 
 **7. Chú ý về wrapper object:**
 
@@ -288,31 +289,30 @@ Số 0 là boolean false, nhưng new Object(0) thì nó là kiểu dữ liệu o
 
 Vậy nếu dùng hàm khởi tạo : let test = new Obj(0) thì dễ gây nhầm lẫn và khó hiểu, vậy nên không nên dùng toán tử new với number(),string(),boolean để khởi tạo
 
-<!--
- let objZero = new Number(0);
- let zero = 0;
+let objZero = new Number(0);
+let zero = 0;
 
 if (objZero) {
-  console.log("zero là truthy!"); // zero là truthy!, trong khi in ra zero thì nó lỗi vì nó false
-} -->
+console.log("zero là truthy!"); // zero là truthy!, trong khi in ra zero thì nó lỗi vì nó false
+}
 
 Không nên dùng các Number(), String(), Boolean() cho hàm khởi tạo nhưng để chuyển đổi về kiểu dữ liệu mình muốn thì khá hữu ích
 
 ví dụ :
 
-<!-- let num = Number("123");
+let num = Number("123");
 console.log(num); // 123
-console.log(typeof num); // number -->
+console.log(typeof num); // number
 
 **8.Biểu diễn number**
 
 a) Dùng dấu gạch dưới :
 
-Đây là 1 tỷ : <!-- let oneBillion = 1000000000; -->
+Đây là 1 tỷ : let oneBillion = 1000000000;
 
 Nhưng js cho phép bạn dùng dấu gạch dưới " \_ " để biểu diễn để dễ nhìn hơn
 
-<!-- let oneBillion = 1_000_000_000; -->
+let oneBillion = 1_000_000_000;
 
 b) Dùng chữ e
 
@@ -329,17 +329,17 @@ c) Dùng num.toString():
 
 Trả về String biểu diễn số num ở hệ cơ số base.
 
-<!-- let num = 255;
+let num = 255;
 
 // chuyển sang hệ cơ số 16
 console.log(num.toString(16)); // ff
 
 // chuyển sang hệ cơ số 2
-console.log(num.toString(2)); // 11111111 -->
+console.log(num.toString(2)); // 11111111
 
 hoặc
 
-<!-- console.log((1234567890).toString(36)); // kf12oi -->
+console.log((1234567890).toString(36)); // kf12oi
 
 d) Làm tròn number :
 
@@ -352,9 +352,9 @@ e) Dùng toFixed():
 
 Phương thức này sẽ làm tròn số và trả về string với chính xác n chữ số sau dấu phẩy.
 
-<!-- let a = 1.2345;
+let a = 1.2345;
 let b = a.toFixed(2);
-console.log(b); // "1.23" -->
+console.log(b); // "1.23"
 
 Có thể dùng Number() để chuyển đổi kiểu dữ liệu sang number
 
@@ -362,8 +362,8 @@ g) Infinity và -Infinity :
 
 Js biểu diễn số theo chuẩn IEEE-745, định dạng này sử dụng 64bit. Vượt 64bit thì nó sẽ thành _Infinity_ hoặc _-Infinity_
 
-<!-- console.log(1e500); // Infinity
-console.log(-1e500); // -Infinity -->
+console.log(1e500); // Infinity
+console.log(-1e500); // -Infinity
 
 h) Sự sai số :
 
@@ -373,17 +373,16 @@ Bởi vì dưới dạng nhị phân trong máy tính.
 
 0.1 không phải là 0.1 mà là : 0.10000000000000000555
 
-<!-- console.log((0.1).toFixed(20));  -->
+console.log((0.1).toFixed(20));
 
 Vì vậy phải dùng toFixed(1) lúc này
 
-<!--
- let a = 0.1;
+let a = 0.1;
 let b = 0.2;
 
 // Sử dụng toFixed(1)
 let sum2 = (a + b).toFixed(1);
-console.log(sum2); -->
+console.log(sum2);
 
 hoặc sử dụng nhân rồi chia, nhân cả hai cho 10 cộng với nhau rồi tất cả chia 10
 
@@ -391,15 +390,15 @@ e) Để kiểm tra phải là number không thì dùng isNaN() hoặc isFinite(
 
 - Hàm isNaN() này chuyển đổi value thành dạng số rồi kiểm tra xem có bằng NaN hay không.
 
-<!-- console.log(isNaN(1)); // false -->
+console.log(isNaN(1)); // false
 
 có thực sự cần thiết không? có vì nếu ghi là if số === NaN thì sẽ lỗi, trong trường hợp biến == NaN thì chỉ có cách dùng isNaN() thôi.
 
 - Hàm isInfinite() chuyển đổi giá trị value thành dạng số và trả về true nếu số đó khác Infinity, -Infinity và NaN, ngược lại thì trả về false.
 
-<!-- console.log(isFinite("1")); // true - "1" chuyển thành 1
+console.log(isFinite("1")); // true - "1" chuyển thành 1
 console.log(isFinite("abc")); // false - "abc" chuyển sang số thành NaN
-console.log(isFinite(1e500)); // false - 1e500 bằng Infinity -->
+console.log(isFinite(1e500)); // false - 1e500 bằng Infinity
 
 z) Hàm **parseInt()** và **parseFloat()**
 
@@ -408,8 +407,8 @@ parse ('paars) : seperate a sentence into grammatical parts, such as subject
 - Hàm parseInt tách lấy số nguyên.
 - Hàm parseFloat tách lấy số thực.
 
-<!-- console.log(parseInt("100px")); // 100
-console.log(parseFloat("1.1em")); // 1.1 -->
+console.log(parseInt("100px")); // 100
+console.log(parseFloat("1.1em")); // 1.1
 
 j) Một số phương thức toán học cơ bản :
 
@@ -441,14 +440,14 @@ b) Sự khác nhau khi tìm chữ cái bằng index [] hoặc dấu ():
 
 c) String trong js là bất biến :
 
-<!-- let str = "hello";
+let str = "hello";
 str[0] = "H";
-console.log(str); // hello - string không thay đổi -->
+console.log(str); // hello - string không thay đổi
 
 d) Đổi chữ hoa và chữ thường :
 
-<!-- console.log("Hello".toLowerCase()); // hello
-console.log("Hello".toUpperCase()); // HELLO -->
+console.log("Hello".toLowerCase()); // hello
+console.log("Hello".toUpperCase()); // HELLO
 
 e) Tìm kiếm string con :
 
@@ -456,72 +455,72 @@ Phương thức : **str.indexOf(substr, pos)**
 
 lấy ra index của chữ đó, còn không tìm thấy thì trả về -1
 
-<!-- let str = "I am a js dev";
+let str = "I am a js dev";
 console.log(str.indexOf("a", 3));
 
-//output : 5 -->
+//output : 5
 
 h) muốn tìm hết vị trí của một chữ
 
 Khi tìm thấy một vị trí, mình lưu lại ví trí đó để sử dụng cho lần lặp tiếp theo. Cho đến khi kết quả là -1 thì dừng lại.
 
-<!-- let str = "I am a js dev";
+let str = "I am a js dev";
 let target = "a";
 
 let pos = 0;
 while (true) {
-  let foundPos = str.indexOf(target, pos);
-  if (foundPos === -1) break;
+let foundPos = str.indexOf(target, pos);
+if (foundPos === -1) break;
 
-  console.log("found pos:", foundPos);
-  pos = foundPos + 1;
-} -->
+console.log("found pos:", foundPos);
+pos = foundPos + 1;
+}
 
 m) Tìm kiến index từ cuối lên đầu:
 
 Cú pháp : str.lastIndexOf(substr, pos)
 
-<!-- let str = "I am a js dev";
-console.log(str.lastIndexOf("a")); // 5 -->
+let str = "I am a js dev";
+console.log(str.lastIndexOf("a")); // 5
 
 n) Dùng inludes thì trả lại true/false :
 
 hữu ích khi cần kiểm tra tính tồn tại của substring mà không quan tâm vị trí
 
-<!-- let str = "I am a js dev";
+let str = "I am a js dev";
 console.log(str.includes("js")); // true
-console.log(str.includes("JS")); // false -->
+console.log(str.includes("JS")); // false
 
 tham số thứ hai của str.includes() có thể là position nhaa
 
 g ) Phương thức str.startsWith(substr) :
 
-<!-- let str = "I am a js dev";
+let str = "I am a js dev";
 console.log(str.startsWith("I am")); // true
-console.log(str.startsWith("js")); // false -->
+console.log(str.startsWith("js")); // false
 
 f) Phương thức str.endsWith(substr) :
 
-<!-- let str = "I am a js dev";
+let str = "I am a js dev";
 console.log(str.endsWith("I am")); // false
-console.log(str.endsWith("dev")); // true -->
+console.log(str.endsWith("dev")); // true
 
 z) Phương thức lấy giá trị của string slice():
 
-<!-- let str = "I am a js dev";
+let str = "I am a js dev";
 console.log(str.slice(2, 4)); // am
 
 let str = "I am a js dev";
 console.log(str.slice(2)); // am a js dev
 
 let str = "I am a js dev";
-console.log(str.slice(-3, -1)); // de -->
+console.log(str.slice(-3, -1)); // de
 
 i) Phương thức str.substring(start [, end]) :
 
 Phương thức này gần giống phương thức str.slice(start, [, end]) chỉ khác ở chỗ là: phương thức substring cho phép start có thể lớn hơn end và substring không áp dụng được cho trường hợp start, end có giá trị âm, ví dụ:
 
-<!-- let str = "I am a js dev";
+let str = "I am a js dev";
 
 // trường hợp bình thường
 console.log(str.substring(2, 4)); // am
@@ -530,7 +529,7 @@ console.log(str.substring(2, 4)); // am
 console.log(str.substring(2)); // am a js dev
 
 // trường hợp start lớn hơn end
-console.log(str.substring(4, 2)); // am -->
+console.log(str.substring(4, 2)); // am
 
 CÓ NGHĨA LÀ (4,2) SẼ ĐƯỢC WRAP LẠI VÀ THỰC THI NHƯ (2,4) đó
 
@@ -538,15 +537,15 @@ y) Phương thức str.substr(start [, length]) :
 
 Trả về substring bắt đầu từ vị trí start và lấy số kí tự là length.
 
-<!-- let str = "I am a js dev";
-console.log(str.substr(2, 2)); // am - bắt đầu từ vị trí 2, lấy 2 kí tự -->
+let str = "I am a js dev";
+console.log(str.substr(2, 2)); // am - bắt đầu từ vị trí 2, lấy 2 kí tự
 
 Không có giá trị length() thì trả về đến hết string.
 
 Nếu giá trị start là âm, thì việc lấy substring được tính từ cuối (vị trí kí tự cuối cùng là -1):
 
-<!-- let str = "I am a js dev";
-console.log(str.substr(-2, 2)); // ev -->
+let str = "I am a js dev";
+console.log(str.substr(-2, 2)); // ev
 
 ==> Kết luận : Trong ba phương thức trên thì phương thức slice có vẻ linh động hơn cả, vì nó ngắn gọn, dễ nhớ và hỗ trợ tham số âm.
 

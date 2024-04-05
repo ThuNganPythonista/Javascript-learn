@@ -195,4 +195,5 @@ let arrayLike = {
 let arr4 = Array.from(arrayLike);
 console.log(arr4);
 
-// iterable t
+console.log(parseInt("100px")); // 100
+console.log(parseFloat("1.1em")); // 1.1
