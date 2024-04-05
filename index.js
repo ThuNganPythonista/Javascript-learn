@@ -183,3 +183,16 @@ var projec1 = ["PHP", "CSS"];
 var projec2 = ["HTML", "Python", "JS"];
 var children = projec1.concat(projec2);
 console.log(children);
+
+//Array.from ()
+
+let arrayLike = {
+  0: "a",
+  1: "b",
+  length: 2,
+};
+
+let arr4 = Array.from(arrayLike);
+console.log(arr4);
+
+// iterable t
