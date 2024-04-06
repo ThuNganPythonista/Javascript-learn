@@ -208,11 +208,7 @@ Thường in ra range của một mảng array hay string ở js, thì ta dùng 
 
 Vậy để có thể dùng for ... of thì ta sẽ làm như sau
 
-<<<<<<< HEAD
-````
-=======
 ```
->>>>>>> origin/main
 let range = {
 from: 1,
 to: 5,
