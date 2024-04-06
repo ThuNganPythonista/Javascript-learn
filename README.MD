@@ -208,11 +208,7 @@ Thường in ra range của một mảng array hay string ở js, thì ta dùng 
 
 Vậy để có thể dùng for ... of thì ta sẽ làm như sau
 
-<<<<<<< HEAD
-````
-=======
-```
->>>>>>> origin/main
+``
 let range = {
 from: 1,
 to: 5,
@@ -233,6 +229,7 @@ return { done: true };
 for (let num of range) {
 console.log(num);
 }
+
 ```
 
 Vậy là for .. of được range từ 1 -> 5 rồi
@@ -242,6 +239,7 @@ Vậy là for .. of được range từ 1 -> 5 rồi
 Này biết thêm thôi để hiểu cách symbol iterator hoạt động thôi @\_@ Dùng for ... of được thì dùng thôi, chứ cái này không bao giờ áp dụng trong thực tế
 
 ```
+
 let str = "Hello";
 
 let iterator = str[Symbol.iterator]();
@@ -251,6 +249,7 @@ let result = iterator.next();
 if (result.done) break;
 console.log(result.value);
 }
+
 ```
 
 **6.2 Array.from(tên OBJECT)**
@@ -262,6 +261,7 @@ console.log(result.value);
 **6.3 Iterable Object thành array**
 
 ```
+
 let range = {
 from: 1,
 to: 5,
@@ -312,18 +312,16 @@ Không nên dùng các Number(), String(), Boolean() cho hàm khởi tạo nhưn
 ví dụ :
 
 ```
+
 let num = Number("123");
 console.log(num); // 123
 console.log(typeof num); // number
+
 ```
 
 **8.Biểu diễn number**
 
-<<<<<<< HEAD
 a) ****Dùng dấu gạch dưới :****
-=======
-a)**** Dùng dấu gạch dưới:**** 
->>>>>>> origin/main
 
 Đây là 1 tỷ : let oneBillion = 1000000000;
 
@@ -362,11 +360,8 @@ hoặc
 
 console.log((1234567890).toString(36)); // kf12oi
 
-<<<<<<< HEAD
-d) ****Làm tròn number :****
-=======
+
 d)****Làm tròn number :****
->>>>>>> origin/main
 
 Math.floor() : làm tròn xuống
 Math.ceil() : làm tròn lên
@@ -585,8 +580,10 @@ U) ****So sánh String :****
 **str.codePointAt(pos)** : đổi string sang số unicode
 
 ```
+
 console.log("a".codePointAt(0)); // 97
 console.log("A".codePointAt(0)); // 65
+
 ```
 
 "a"> "A" vì 97>65
@@ -600,10 +597,12 @@ I) **ES6 Template String:**
 + Tạm gọi là cú pháp **${expression}** cho phép viết biểu thức ngay trong String
 
 ```
+
 let name = "Lam Pham";
 let greeting = `I'm ${name}`;
 
 console.log(greeting);
+
 ```
 
 + Thường ghép nối một câu hoàn chỉnh, có thể dùng toán tử + hoặc concat().Tuy nhiên, dùng ES6 String nhìn gọn gàng và đẹp hơn. Áp dụng được cho biểu thức toán học thay vì toán tử +
@@ -618,10 +617,12 @@ console.log(greeting);
 ES6 String bình thường expression là biến hoặc return của 1 hàm, nhưng ta cũng có thể kết hợp 2 hàm lại bằng 1 hàm để trong expression , 1 hàm trước ES6
 
 ```
+
 const math = ([x, y], op) => op(Number(x), Number(y));
 const plus = (x, y) => x + y;
 const result = math`6 ${plus} 3`;
 console.log(result); // 9
+
 ```
 
 
@@ -629,4 +630,40 @@ console.log(result); // 9
 
 
 **HÔM NAY BẮT ĐẦU TỪ 6 THÁNG 4 2024**
-````
+```
+
+1. **MAP LÀ GÌ**
+
+Map là một cấu trúc dữ liệu có type là object. Tuy nhiên object chỉ có 2 kiểu value là symbol và key, còn map() đa dạng value hơn như Boolean/Number/String/NaN/...
+
+```
+const map1 = new Map();
+console.log(typeof map1); // object
+```
+
+_Khởi tạo Map rỗng_
+
+```
+const map1 = new Map();
+console.log(map1);
+```
+
+**Khởi tạo Map từ Array**
+
+Array hợp lệ để khởi tạo Map là các phần tử của array phải là một mảng hai phần tử.
+
+**Khởi tạo Map từ Arguments**
+
+giống y chang array mà khác cách viết thôi
+
+**Khởi tạo map từ map**
+
+Giống tạo một clone mới thôi
+
+**Cách thêm phần tử vào Map()**
+
+Cú pháp
+
+`map.set(key,value)`
+
+Nếu key chưa tồn tai thì nó tạo mới, nếu đã tồn tại thì nó gán giá trị mới

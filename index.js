@@ -207,3 +207,40 @@ let sum1 = (x, y) => x + y;
 console.log(`Sum of x and y is: ${x + y}`); // Sum of x and y is: 3
 
 console.log(`Sum of x and y is: ${sum1(x, y)}`); // Sum of x and y is: 3
+
+// map từ array
+
+const map2 = new Map([
+  [1, "a"],
+  [2, "b"],
+]);
+console.log(map2);
+
+// map từ arguments
+
+function func4() {
+  const map4 = new Map(arguments);
+  console.log(map4);
+}
+
+func4(["one", 1], ["two", 2], ["three", 3]);
+
+// map từ map
+
+const map6 = new Map([
+  ["a", 1],
+  ["b", 2],
+]);
+console.log(map6);
+const map6_clone = new Map(map6);
+console.log(map6_clone);
+
+//map từ set
+
+const set5 = new Set([
+  ["a", 1],
+  ["b", 2],
+]);
+console.log(set5);
+const map5 = new Map(set5);
+console.log(map5);
