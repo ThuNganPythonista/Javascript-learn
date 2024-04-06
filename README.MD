@@ -208,7 +208,11 @@ Thường in ra range của một mảng array hay string ở js, thì ta dùng 
 
 Vậy để có thể dùng for ... of thì ta sẽ làm như sau
 
+<<<<<<< HEAD
 ````
+=======
+```
+>>>>>>> origin/main
 let range = {
 from: 1,
 to: 5,
@@ -237,6 +241,7 @@ Vậy là for .. of được range từ 1 -> 5 rồi
 
 Này biết thêm thôi để hiểu cách symbol iterator hoạt động thôi @\_@ Dùng for ... of được thì dùng thôi, chứ cái này không bao giờ áp dụng trong thực tế
 
+```
 let str = "Hello";
 
 let iterator = str[Symbol.iterator]();
@@ -246,6 +251,7 @@ let result = iterator.next();
 if (result.done) break;
 console.log(result.value);
 }
+```
 
 **6.2 Array.from(tên OBJECT)**
 
@@ -255,6 +261,7 @@ console.log(result.value);
 
 **6.3 Iterable Object thành array**
 
+```
 let range = {
 from: 1,
 to: 5,
@@ -285,6 +292,8 @@ last: this.to,
 let arr = Array.from(range);
 console.log(arr); [1,2,3,4,5]
 
+```
+
 **7. Chú ý về wrapper object:**
 
 Số 0 là boolean false, nhưng new Object(0) thì nó là kiểu dữ liệu objec là luôn luôn truthy
@@ -302,13 +311,19 @@ Không nên dùng các Number(), String(), Boolean() cho hàm khởi tạo nhưn
 
 ví dụ :
 
+```
 let num = Number("123");
 console.log(num); // 123
 console.log(typeof num); // number
+```
 
 **8.Biểu diễn number**
 
+<<<<<<< HEAD
 a) ****Dùng dấu gạch dưới :****
+=======
+a)**** Dùng dấu gạch dưới:**** 
+>>>>>>> origin/main
 
 Đây là 1 tỷ : let oneBillion = 1000000000;
 
@@ -320,6 +335,8 @@ b) ****Dùng chữ e****
 
 - Có bao nhiêu số 0 tương ứng với có bao nhiêu chữ e
 
+```
+
 //
 let a = 1e3; // 1_000 - 1 nghìn
 let d = 4.6e9; // 4_600_000_000 - 4.6 tỷ
@@ -327,7 +344,9 @@ let d = 4.6e9; // 4_600_000_000 - 4.6 tỷ
 1.23e-4 === 1.23 / 10000; // nó là 1.23 chia cho 10000
 //
 
-c) Dùng num.toString():
+```
+
+c) ****Dùng num.toString():****
 
 Trả về String biểu diễn số num ở hệ cơ số base.
 
@@ -343,7 +362,11 @@ hoặc
 
 console.log((1234567890).toString(36)); // kf12oi
 
+<<<<<<< HEAD
 d) ****Làm tròn number :****
+=======
+d)****Làm tròn number :****
+>>>>>>> origin/main
 
 Math.floor() : làm tròn xuống
 Math.ceil() : làm tròn lên
