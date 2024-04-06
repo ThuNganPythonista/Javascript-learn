@@ -197,3 +197,13 @@ console.log(arr4);
 
 console.log(parseInt("100px")); // 100
 console.log(parseFloat("1.1em")); // 1.1
+
+// ES6 string
+
+let x = 1;
+let y = 2;
+let sum1 = (x, y) => x + y;
+
+console.log(`Sum of x and y is: ${x + y}`); // Sum of x and y is: 3
+
+console.log(`Sum of x and y is: ${sum1(x, y)}`); // Sum of x and y is: 3
