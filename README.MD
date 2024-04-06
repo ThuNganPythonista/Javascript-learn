@@ -315,11 +315,9 @@ console.log(typeof num); // number
 
 **8.Biểu diễn number**
 
-<<<<<<< HEAD
 a) ****Dùng dấu gạch dưới :****
-=======
-a)**** Dùng dấu gạch dưới:**** 
->>>>>>> origin/main
+
+
 
 Đây là 1 tỷ : let oneBillion = 1000000000;
 
