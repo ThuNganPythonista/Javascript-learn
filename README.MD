@@ -208,7 +208,11 @@ Thường in ra range của một mảng array hay string ở js, thì ta dùng 
 
 Vậy để có thể dùng for ... of thì ta sẽ làm như sau
 
+<<<<<<< HEAD
 ``
+=======
+```
+>>>>>>> origin/main
 let range = {
 from: 1,
 to: 5,
@@ -322,6 +326,11 @@ console.log(typeof num); // number
 **8.Biểu diễn number**
 
 a) ****Dùng dấu gạch dưới :****
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/main
 
 Đây là 1 tỷ : let oneBillion = 1000000000;
 
