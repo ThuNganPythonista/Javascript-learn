@@ -208,6 +208,7 @@ Thường in ra range của một mảng array hay string ở js, thì ta dùng 
 
 Vậy để có thể dùng for ... of thì ta sẽ làm như sau
 
+```
 let range = {
 from: 1,
 to: 5,
@@ -228,6 +229,7 @@ return { done: true };
 for (let num of range) {
 console.log(num);
 }
+```
 
 Vậy là for .. of được range từ 1 -> 5 rồi
 
@@ -235,6 +237,7 @@ Vậy là for .. of được range từ 1 -> 5 rồi
 
 Này biết thêm thôi để hiểu cách symbol iterator hoạt động thôi @\_@ Dùng for ... of được thì dùng thôi, chứ cái này không bao giờ áp dụng trong thực tế
 
+```
 let str = "Hello";
 
 let iterator = str[Symbol.iterator]();
@@ -244,6 +247,7 @@ let result = iterator.next();
 if (result.done) break;
 console.log(result.value);
 }
+```
 
 **6.2 Array.from(tên OBJECT)**
 
@@ -253,6 +257,7 @@ console.log(result.value);
 
 **6.3 Iterable Object thành array**
 
+```
 let range = {
 from: 1,
 to: 5,
@@ -283,6 +288,8 @@ last: this.to,
 let arr = Array.from(range);
 console.log(arr); [1,2,3,4,5]
 
+```
+
 **7. Chú ý về wrapper object:**
 
 Số 0 là boolean false, nhưng new Object(0) thì nó là kiểu dữ liệu objec là luôn luôn truthy
@@ -300,13 +307,15 @@ Không nên dùng các Number(), String(), Boolean() cho hàm khởi tạo nhưn
 
 ví dụ :
 
+```
 let num = Number("123");
 console.log(num); // 123
 console.log(typeof num); // number
+```
 
 **8.Biểu diễn number**
 
-a) Dùng dấu gạch dưới :
+a)**** Dùng dấu gạch dưới:**** 
 
 Đây là 1 tỷ : let oneBillion = 1000000000;
 
@@ -318,6 +327,8 @@ b) Dùng chữ e
 
 - Có bao nhiêu số 0 tương ứng với có bao nhiêu chữ e
 
+```
+
 //
 let a = 1e3; // 1_000 - 1 nghìn
 let d = 4.6e9; // 4_600_000_000 - 4.6 tỷ
@@ -325,7 +336,9 @@ let d = 4.6e9; // 4_600_000_000 - 4.6 tỷ
 1.23e-4 === 1.23 / 10000; // nó là 1.23 chia cho 10000
 //
 
-c) Dùng num.toString():
+```
+
+c) ****Dùng num.toString():****
 
 Trả về String biểu diễn số num ở hệ cơ số base.
 
@@ -341,14 +354,14 @@ hoặc
 
 console.log((1234567890).toString(36)); // kf12oi
 
-d) Làm tròn number :
+d)****Làm tròn number :****
 
 Math.floor() : làm tròn xuống
 Math.ceil() : làm tròn lên
 Math.round() : làm tròn tới số gần nhất
 Math.trunc() : cắt bỏ số dư
 
-e) Dùng toFixed():
+e) ****Dùng toFixed():****
 
 Phương thức này sẽ làm tròn số và trả về string với chính xác n chữ số sau dấu phẩy.
 
@@ -358,14 +371,14 @@ console.log(b); // "1.23"
 
 Có thể dùng Number() để chuyển đổi kiểu dữ liệu sang number
 
-g) Infinity và -Infinity :
+g) ****Infinity và -Infinity :****
 
 Js biểu diễn số theo chuẩn IEEE-745, định dạng này sử dụng 64bit. Vượt 64bit thì nó sẽ thành _Infinity_ hoặc _-Infinity_
 
 console.log(1e500); // Infinity
 console.log(-1e500); // -Infinity
 
-h) Sự sai số :
+h) ****Sự sai số :****
 
 ví dụ : 0.1 + 0.2 === 0.3 là sai
 
@@ -386,7 +399,7 @@ console.log(sum2);
 
 hoặc sử dụng nhân rồi chia, nhân cả hai cho 10 cộng với nhau rồi tất cả chia 10
 
-e) Để kiểm tra phải là number không thì dùng isNaN() hoặc isFinite():
+e) ****Để kiểm tra phải là number không thì dùng isNaN() hoặc isFinite():****
 
 - Hàm isNaN() này chuyển đổi value thành dạng số rồi kiểm tra xem có bằng NaN hay không.
 
@@ -410,7 +423,7 @@ parse ('paars) : seperate a sentence into grammatical parts, such as subject
 console.log(parseInt("100px")); // 100
 console.log(parseFloat("1.1em")); // 1.1
 
-j) Một số phương thức toán học cơ bản :
+j) ****Một số phương thức toán học cơ bản :****
 
 Math.random()
 Math.max()
@@ -426,7 +439,7 @@ Math.pow(2,3) = 2^3 = 8
 - \xXX: biểu diễn kí tự unicode, trong đó XX là mã unicode ở hệ thập lục phân. Ví dụ: \x7A tương đương với z
 - \uXXXX hoặc \u{X..XXX} : biểu diễn symbol unicode
 
-a) Tính độ dài của String :
+a) ****Tính độ dài của String :****
 
 <!-- console.log(`Me\n`.length); // 3 -->
 
@@ -434,22 +447,22 @@ a) Tính độ dài của String :
 
 - length là thuộc tính chứ không phải phương thức. Vì vậy, nếu gọi "str".length() thì sẽ bị lỗi "str ".length is not a function.
 
-b) Sự khác nhau khi tìm chữ cái bằng index [] hoặc dấu ():
+b) ****Sự khác nhau khi tìm chữ cái bằng index [] hoặc dấu ():****
 
 Điểm khác nhau duy nhất là một cái khi không tìm thấy sẽ trả về undefined còn () trả về string rỗng
 
-c) String trong js là bất biến :
+c) ****String trong js là bất biến :****
 
 let str = "hello";
 str[0] = "H";
 console.log(str); // hello - string không thay đổi
 
-d) Đổi chữ hoa và chữ thường :
+d) ****Đổi chữ hoa và chữ thường :****
 
 console.log("Hello".toLowerCase()); // hello
 console.log("Hello".toUpperCase()); // HELLO
 
-e) Tìm kiếm string con :
+e) ****Tìm kiếm string con :****
 
 Phương thức : **str.indexOf(substr, pos)**
 
@@ -460,7 +473,7 @@ console.log(str.indexOf("a", 3));
 
 //output : 5
 
-h) muốn tìm hết vị trí của một chữ
+h) ****muốn tìm hết vị trí của một chữ****
 
 Khi tìm thấy một vị trí, mình lưu lại ví trí đó để sử dụng cho lần lặp tiếp theo. Cho đến khi kết quả là -1 thì dừng lại.
 
@@ -476,14 +489,14 @@ console.log("found pos:", foundPos);
 pos = foundPos + 1;
 }
 
-m) Tìm kiến index từ cuối lên đầu:
+m) ****Tìm kiến index từ cuối lên đầu:****
 
 Cú pháp : str.lastIndexOf(substr, pos)
 
 let str = "I am a js dev";
 console.log(str.lastIndexOf("a")); // 5
 
-n) Dùng inludes thì trả lại true/false :
+n) ****Dùng inludes thì trả lại true/false :****
 
 hữu ích khi cần kiểm tra tính tồn tại của substring mà không quan tâm vị trí
 
@@ -493,19 +506,19 @@ console.log(str.includes("JS")); // false
 
 tham số thứ hai của str.includes() có thể là position nhaa
 
-g ) Phương thức str.startsWith(substr) :
+g ) ****Phương thức str.startsWith(substr) :****
 
 let str = "I am a js dev";
 console.log(str.startsWith("I am")); // true
 console.log(str.startsWith("js")); // false
 
-f) Phương thức str.endsWith(substr) :
+f) ****Phương thức str.endsWith(substr) :****
 
 let str = "I am a js dev";
 console.log(str.endsWith("I am")); // false
 console.log(str.endsWith("dev")); // true
 
-z) Phương thức lấy giá trị của string slice():
+z) ****Phương thức lấy giá trị của string slice():****
 
 let str = "I am a js dev";
 console.log(str.slice(2, 4)); // am
@@ -516,7 +529,7 @@ console.log(str.slice(2)); // am a js dev
 let str = "I am a js dev";
 console.log(str.slice(-3, -1)); // de
 
-i) Phương thức str.substring(start [, end]) :
+i) ****Phương thức str.substring(start [, end]) :****
 
 Phương thức này gần giống phương thức str.slice(start, [, end]) chỉ khác ở chỗ là: phương thức substring cho phép start có thể lớn hơn end và substring không áp dụng được cho trường hợp start, end có giá trị âm, ví dụ:
 
@@ -533,7 +546,7 @@ console.log(str.substring(4, 2)); // am
 
 CÓ NGHĨA LÀ (4,2) SẼ ĐƯỢC WRAP LẠI VÀ THỰC THI NHƯ (2,4) đó
 
-y) Phương thức str.substr(start [, length]) :
+y) ****Phương thức str.substr(start [, length]) :****
 
 Trả về substring bắt đầu từ vị trí start và lấy số kí tự là length.
 
