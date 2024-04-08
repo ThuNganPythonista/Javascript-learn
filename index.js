@@ -244,3 +244,61 @@ const set5 = new Set([
 console.log(set5);
 const map5 = new Map(set5);
 console.log(map5);
+
+// thêm key-value vào map bằng set
+
+const map7 = new Map();
+map7.set(NaN, 6);
+map7.set("a", 1);
+map7.set([1], 3);
+
+console.log(map7);
+
+//chaining method (thêm rất nhiều cặp key-value cho map)
+
+const map8 = new Map();
+map7.set("a", 1).set("b", 2).set([1], 3).set("a", 4).set([1], 5).set(NaN, 6);
+
+console.log(map8);
+
+// map7.get(key)
+
+const map = new Map([
+  ["a", 7],
+  ["b", 8],
+]);
+console.log(map.get("a")); // ra 7
+
+//map.has(key)
+
+console.log(map.has("a")); // ra true là có key đó
+
+// map.delete(key)
+
+console.log(map.delete("a"));
+
+// map.clear()
+
+// map dùng for .. of
+
+const map12 = new Map([
+  [1, "a"],
+  [2, "b"],
+  [3, "c"],
+]);
+
+for (const item of map12) {
+  console.log(item);
+}
+
+// forEach cho map
+
+const map13 = new Map([
+  [1, "a"],
+  [2, "b"],
+  [3, "c"],
+]);
+
+map13.forEach((value, key, map) => {
+  console.log(value, key, map);
+});
