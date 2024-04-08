@@ -302,3 +302,23 @@ const map13 = new Map([
 map13.forEach((value, key, map) => {
   console.log(value, key, map);
 });
+
+// map.key
+
+for (const key of map13.keys()) {
+  console.log(key);
+}
+
+//map.values
+
+for (const value of map13.values()) {
+  console.log(value);
+}
+
+// map sử dụng spread để tạo array keys
+
+const key = [...map13.keys()]; //key có "s"
+
+// map sử dụng spread để tạo array values
+
+const value = [...map13.values()];

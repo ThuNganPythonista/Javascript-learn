@@ -636,8 +636,6 @@ console.log(result); // 9
 
 **HÔM NAY BẮT ĐẦU TỪ 6 THÁNG 4 2024**
 
-```
-
 1. **MAP LÀ GÌ**
 
 Map là một cấu trúc dữ liệu có type là object. Tuy nhiên object chỉ có 2 kiểu value là symbol và key, còn map() đa dạng value hơn như Boolean/Number/String/NaN/...
@@ -649,14 +647,7 @@ console.log(typeof map1); // object
 
 ```
 
-_Khởi tạo Map rỗng_
-
-```
-
-const map1 = new Map();
-console.log(map1);
-
-```
+_Khởi tạo Map rỗng_ : `const map = new Map()`
 
 **Khởi tạo Map từ Array**
 
@@ -678,9 +669,7 @@ Cú pháp
 
 Nếu key chưa tồn tai thì nó tạo mới, nếu đã tồn tại thì nó gán giá trị mới
 
-
 Ngoài ra, cú pháp trên có thể dùng để thêm 1 lần rất nhiều cặp key-value trong cùng một dòng
-
 
 **Lấy giá trị của phần tử trong Map**
 
@@ -689,22 +678,45 @@ Nếu không tồn tại thì trả về undefined
 
 **Kiểm tra phần tử tồn tại trong Map**
 
- dùng phương thức has : `map.has(key);`
+dùng phương thức has : `map.has(key);`
 
- **Xoá một phần tử trong Map**
+**Xoá một phần tử trong Map**
 
-
- dùng phương thức : map.delete(key);
+dùng phương thức : map.delete(key);
 
 **Xoá tất cả phần tử trong Map**
 
 sử dụng phương thức clear : map.clear()
-
 
 **Duyệt qua các phần tử trong Map**
 
     + sử dụng for.. of
     + sử dụng forEach (dùng forEach thì nó có 3 tham số cho xài luôn, key-value-map)
 
+**Phương thức map.keys()**
 
-```
+trả về keys
+
+**Phương thức map.values()**
+
+trả về values
+
+**Chuyển Map thành Array**
+
+sử dụng cú pháp spread để tạo một array toàn keys hoặc values từ map
+
+**2. SO SÁNH MAP VÀ OBJECT**
+
+Khi nào dùng Object, khi nào dùng Map
+
+**OBJECT**
+
+    + Nếu key chỉ đơn giản là symbol và string
+    + Json chỉ hỗ trợ object
+    + Thích hợp khi ít thuộc tính
+
+**Map**
+
+    + muốn sử dụng đa dạng key hơn như key là : object, function...
+    + duy trì thứ tự các keyss. Tại vì khi lặp object, thứ tự nó không còn giống như lúc nó đc thêm vào
+    + Map mà mình lưu trữ tập tin lớn thì nó làm tốt hơn
