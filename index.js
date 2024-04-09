@@ -350,3 +350,87 @@ function func4() {
 }
 
 func4("a", "b", "c", "b", 0, 1);
+
+// thêm phần tử vào set()
+
+const set = new Set();
+set.add(1);
+console.log(set);
+
+set.add(1).add(2).add(3);
+console.log(set);
+
+// lấy phần tử từ set()
+
+const set_1 = new Set(["a", "b", "a"]);
+console.log(set_1.size); // 2 - vì set chỉ có hai phần tử ["a", "b"]
+
+// set.has()
+
+const set_01 = new Set([1, "a", [1, 2]]);
+
+console.log(set_01.has(1)); // true
+console.log(set_01.has("1")); // false
+console.log(set_01.has("a")); // true
+console.log(set_01.has("b")); // false
+console.log(set_01.has([1, 2])); // false - vì [1, 2] !== [1, 2]
+
+// set.delete()
+
+const set_2 = new Set("abcdcba");
+console.log(set_2); // Set(4) {a, b, c, d}
+
+set_2.delete("a");
+console.log(set_2);
+
+// set.clear()
+
+const set_4 = new Set([1, 2, 3]);
+console.log(set_4); // Set(3) {1, 2, 3}
+
+set_4.clear();
+console.log(set_4); // Set(0) {}
+
+// set dùng for ... of
+
+const set_a = new Set(["a", { x: 1 }, 1]);
+
+for (const x of set_a) {
+  console.log(x);
+}
+
+//set dùng forEach()
+
+const set_21 = new Set(["a", { x: 1 }, 1]);
+
+for (const x of set_21) {
+  console.log(x);
+}
+
+// Ba phương thức set.keys(), set.values() và set.entries()
+
+const _set1 = new Set(["a", { x: 1 }, 1]);
+
+for (const x of _set1.keys()) {
+  console.log(x);
+}
+for (const x of _set1.values()) {
+  console.log(x);
+}
+for (const x of _set1.entries()) {
+  console.log(x);
+  // /*
+  // * ["a", "a"]
+  // * [{ x : 1}, { x : 1}]
+  // * [1, 1]
+  // * Output thằng cuối hơi khác nha/
+}
+
+// chuyển set thành array bằng array.From(set)
+
+const newset = new Set([1, 2, 3, 4, 5]);
+const arr1 = Array.from(newset);
+console.log(arr1);
+
+const arr_2 = [...newset];
+console.log(arr_2);

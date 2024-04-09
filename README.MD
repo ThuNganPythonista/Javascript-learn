@@ -742,3 +742,33 @@ String cũng là một loại iterable object.
 arguments là đối tượng có sẵn trong hàm, dùng để lưu trữ mảng các tham số truyền vào.
 
 Ngoài ra, còn có khởi tạo set từ : NodeList, TypedArray, Set từ Map, Set từ Set
+
+**d+) Thêm phần tử vào Set**
+
+`set.add(value);`
+
+**g) Lấy số lượng phần tử trong Set**
+
+dùng set.size()
+
+**h) Kiểm tra phần tử tồn tại trong Set**
+
+dùng set.has()
+
+Nó dùng toán tử nghiêm nghặt === để so sánh đó
+
+**i) Xoá một phần tử trong Set**
+
+dùng set.delete(value)
+
+**q) duyệt qua tất cả phần tử trong set()**
+
+    + dùng for ... of
+
+    + dùng forEach()
+
+    + dùng 3 phương thức : set.keys(), set.values() và set.entries()
+
+**h) Chuyển Set thành Array và ngược lại**
+
+sử dụng Array.from hoặc sử dụng toán tử spread
