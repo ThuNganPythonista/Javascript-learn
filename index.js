@@ -322,3 +322,31 @@ const key = [...map13.keys()]; //key có "s"
 // map sử dụng spread để tạo array values
 
 const value = [...map13.values()];
+
+// set()
+
+const obj1 = { x: 1, y: 2 };
+const obj2 = { x: 1, y: 2 };
+
+console.log(obj1 === obj2);
+const set1 = new Set([obj1, obj2]);
+console.log(set1.size); // ra 2 là 2 keys thôi á
+
+// set() từ array
+
+const set2 = new Set([1, 2, "a", "b", 1]);
+console.log(set2); // thêm kiểu này là thêm values á, keys là 0 1 2 3 4 ...
+
+// Khởi tạo set() từ String
+
+const set3 = new Set("abcba");
+console.log(set3); // Set(3) {"a", "b", "c"}
+
+// Khởi tạo set() từ arguments
+
+function func4() {
+  const set4 = new Set(arguments);
+  console.log(set4);
+}
+
+func4("a", "b", "c", "b", 0, 1);

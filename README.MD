@@ -326,11 +326,8 @@ console.log(typeof num); // number
 
 **8.Biểu diễn number**
 
-a) \***\*Dùng dấu gạch dưới :\*\***
-<<<<<<< HEAD
-=======
-
-> > > > > > > origin/main
+a) **Dùng dấu gạch dưới :**
+origin/main
 
 Đây là 1 tỷ : let oneBillion = 1000000000;
 
@@ -338,7 +335,7 @@ Nhưng js cho phép bạn dùng dấu gạch dưới " \_ " để biểu diễn 
 
 let oneBillion = 1_000_000_000;
 
-b) \***\*Dùng chữ e\*\***
+b) **Dùng chữ e**
 
 - Có bao nhiêu số 0 tương ứng với có bao nhiêu chữ e
 
@@ -720,3 +717,28 @@ Khi nào dùng Object, khi nào dùng Map
     + muốn sử dụng đa dạng key hơn như key là : object, function...
     + duy trì thứ tự các keyss. Tại vì khi lặp object, thứ tự nó không còn giống như lúc nó đc thêm vào
     + Map mà mình lưu trữ tập tin lớn thì nó làm tốt hơn
+
+**3. HỌC VỀ SET**
+
+- Set trong JS là một loại object, cho phép chúng ta lưu trữ dữ liệu mà không trùng lặp, nó là duy nhất bằng thuật toán SameValueZero
+- Chỉ khác ở chỗ thuật toán này coi NaN là giống nhau (mặc dù NaN == NaN là false).
+- Đa số áp dụng cho string và number, còn object khác thì khác
+- có thể lưu NaN và undefine vào
+
+`const set1 = new Set();`
+
+**a) Khởi tạo set() rỗng**
+
+**b) Khởi tạo set() từ Array**
+
+Array là một loại iterable object. _Note:_ Iterable object là một object có thể được lặp lại qua các phần tử của nó. Nói cách khác, bạn có thể sử dụng vòng lặp để truy cập từng phần tử trong object.
+
+**c) Khởi tạo set() từ String**
+
+String cũng là một loại iterable object.
+
+**d) Khởi tạo set() từ arguments**
+
+arguments là đối tượng có sẵn trong hàm, dùng để lưu trữ mảng các tham số truyền vào.
+
+Ngoài ra, còn có khởi tạo set từ : NodeList, TypedArray, Set từ Map, Set từ Set
