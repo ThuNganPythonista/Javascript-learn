@@ -772,3 +772,96 @@ dùng set.delete(value)
 **h) Chuyển Set thành Array và ngược lại**
 
 sử dụng Array.from hoặc sử dụng toán tử spread
+
+**4.Destructuring assignment trong Javascript**
+
+- Destructuring Assignment trong JavaScript là một cú pháp đặc biệt cho phép bạn lấy ra dữ liệu từ Object hoặc Array và gán chúng vào các biến thông thường.
+
+- Tuy nhiên, việc "lấy ra dữ liệu" này chỉ copy mà không làm thay đổi cấu trúc của Object hoặc Array.
+
+**a) Destructuring Assignment với Array**
+
+`let [firstName, lastName] = ["David", "Walsh"];`
+
+**b) Khai báo giá trị default**
+
+`let [firstName, lastName = "Anonymous"] = ["David"];`
+
+Vế phải có một phần tử nên lastName nhận giá trị mặc định bằng Anonymous.
+
+**c) Bỏ qua một số phần tử trong mảng**
+
+chỉ muốn lấy ra một vài giá trị trong đó thì có thể sử dụng toán tử dấu phẩy ,
+
+`let [title, , , color] = ["window", 300, 400, "#000"];`
+
+Lúc này, phần tử ứng chỉ số 1 (bằng 300) và 2 (bằng 400) bị bỏ qua.
+
+**d) Gán các giá trị còn lại của mảng cho một biến khác**
+
+- ở đây mình lấy ra một phần tử và các phần tử còn lại được gán vào một biến khác :
+  sử dụng cú pháp spread ...
+
+`let [title, ...others] = ["window", 300, 400, "#000"];`
+
+OUTPUT :
+
+title = "window"
+
+others = [300, 400, "#000"]
+
+- biến others có giá trị là một mảng các phần tử còn lại.
+
+**g) Hoán đổi giá trị của biến**
+
+```
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+```
+
+**h) Sao chép mảng**
+
+Mảng trong JavaScript là kiểu dữ liệu tham chiếu, nên việc sử dụng toán tử gán = thực chất là copy địa chỉ, ví dụ:
+
+```
+const a = [1, 2];
+const b = a;
+
+console.log(b); // [1, 2]
+console.log(b === a); // true
+```
+
+Nếu bạn muốn b vẫn có giá trị giống a nhưng b === a là false thì có thể sử dụng destructuring assignment trong JavaScript với cú pháp spread ... như sau:
+
+```
+const a = [1, 2];
+const [...b] = a;
+
+console.log(b); // [1, 2]
+console.log(b === a); // false
+```
+
+**z) Destructuring Assignment với Object**
+
+```
+let { firstName, lastName } = { firstName: "David", lastName: "Walsh" };
+/*
+ * firstName = David
+ * lastName = Walsh
+ */
+```
+
+Ví dụ trên thực hiện khai báo và gán luôn giá trị cho các biến firstName và lastName
+
+Ngoài ra, ta có thể tách biệt việc khai báo và gán như sau:
+
+```
+let firstName, lastName;
+({ firstName, lastName } = { firstName: "David", lastName: "Walsh" });
+/*
+* firstName = David
+* lastName = Walsh
+*/
+```

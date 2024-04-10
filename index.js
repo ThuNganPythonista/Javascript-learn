@@ -434,3 +434,22 @@ console.log(arr1);
 
 const arr_2 = [...newset];
 console.log(arr_2);
+
+//destructuring assignment
+
+// cách 1 :
+let [firstName, lastName] = ["David", "Walsh"];
+
+// cách 2 :
+
+let firstName_1, lastName_1;
+
+[firstName_1, lastName_1] = ["David", "Walsh"];
+
+// cách 3 :
+
+let aRr = ["David", "Walsh"];
+let fIrstName, lAstName;
+
+fIrstName = aRr[0];
+lAstName = aRr[1];
