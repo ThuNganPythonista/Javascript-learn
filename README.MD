@@ -843,7 +843,7 @@ console.log(b); // [1, 2]
 console.log(b === a); // false
 ```
 
-**z) Destructuring Assignment với Object**
+**z) Lấy dữ liệu từ obj hoặc arr để gán cho biến**
 
 ```
 let { firstName, lastName } = { firstName: "David", lastName: "Walsh" };
@@ -865,3 +865,135 @@ let firstName, lastName;
 * lastName = Walsh
 */
 ```
+
+**z+1) Khai báo giá trị default**
+
+là gán giống trên nhưng trong biến gán sẵn ko cần bằng
+
+`let { firstName, lastName = "Anonymous" } = { firstName: "David" };`
+
+**j) Gán tên mới cho biến**
+
+Để ngắn gọn, bạn có thể đặt tên mới cho biến khi thực hiện destructuring như sau:
+
+```
+let { firstName: fn, lastName: ln } = { firstName: "David", lastName: "Walsh" };
+/*
+ * fn = David
+ * ln = Walsh
+ */
+```
+
+**o) Gán các giá trị còn lại của Object cho một biến khác**
+
+cú pháp spread ... để gán các thuộc tính còn lại cho object khi thực hiện destructuring.
+
+```javascript
+let { a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 };
+/*
+ * a = 10
+ * b = 20
+ * rest = { c: 30, d: 40 }
+ */
+```
+
+**5. KHỞI TẠO DATE**
+
+- Vẫn là cú pháp = new Date()
+
+\_ Hàm new **Date(milliseconds)** tạo một đối tượng date bằng cách thêm mili giây vào thời gian bằng không. Tham số biểu thị thời gian đã trôi qua tính bằng mili giây kể từ ngày 1 tháng 1 năm 1970 theo giờ UTC.Feb 12, 2022
+
+- Thời gian trước ngày 01/01/1970 có timestamp âm, ví dụ ngày 31/12/1969:
+
+```javascript
+let dec31_1969 = new Date(0 - 24 * 3600 * 1000);
+console.log(dec31_1969); // Wed Dec 31 1969 07:00:00 GMT+0700 (Indochina Time)
+```
+
+- chuyển đổi string sang đối tượng Date :
+
+```javascript
+let date = new Date("2021-12-19");
+console.log(date); // Sun Dec 19 2021 07:00:00 GMT+0700 (Indochina Time)
+```
+
+- hàm khởi tạo đầy đủ các thông tin của Date :
+
+`new Date(year, month, date, hours, minutes, seconds, ms)`
+
+- Độ chính xác tối đa là 1 mili giây:
+
+```javascript
+let date = new Date(2021, 0, 1, 2, 3, 4, 567);
+// 01/01/2021, 02:03:04.567
+```
+
+- **Truy cập các phần tử của Date():**
+
+Phương thức getFullYear(): trả về năm (gồm 4 chữ số).
+
+Phương thức getMonth(): trả về tháng (từ 0 đến 11).
+
+Phương thức getDate(): trả về ngày trong tháng (từ 1 đến 31).
+
+Phương thức getHours(): trả về giờ.
+
+Phương thức getMinutes(): trả về phút.
+
+Phương thức getSeconds(): trả về giây.
+
+Phương thức getMilliseconds(): trả về mili giây.
+
+- **Thay đổi các phần tử của Date** :
+
+Phương thức setFullYear(year, [month], [date])
+
+Phương thức setMonth(month, [date])
+
+Phương thức setDate(date)
+
+Phương thức setHours(hour, [min], [sec], [ms])
+
+Phương thức setMinutes(min, [sec], [ms])
+
+Phương thức setSeconds(sec, [ms])
+
+Phương thức setMilliseconds(ms)
+
+Phương thức setTime(milliseconds)
+
+**Chuyển date về number**
+
+Khi đối tượng Date được chuyển đổi về dạng số, Date sẽ trở thành timestamp, giống như cách sử dụng date.getTime().
+
+```javascript
+let date = new Date();
+console.log(+date); // 1639886372852
+console.log(date.getTime()); // 1639886372852
+```
+
+- Phương thức Date.parse(str) : sẽ parse string ở định dạng tương ứng và trả về giá trị timestamp, nếu định dạng hoặc giá trị không hợp lệ thì trả về NaN
+
+- Tháng đếm từ 0 (tháng 1) đến 11 (tháng 12).
+
+- Ngày trong tuần đếm từ 0 (chủ nhật) đến 6 (thứ 7).
+
+- Phương thức Date.now() trả về timestamp hiện tại mà không cần tạo mới đối tượng Date.
+
+**6. JSON trong JavaScript**
+
+**a) Json là gì**
+
+- viết tắt của JavaScript Object Notation. Đây là một định dạng chung để biểu diễn các giá trị và object.
+
+- JSON được sử dụng nhiều để trao đổi dữ liệu giữa client (JavaScript) và server (Ruby, PHP, Java,...).
+
+- JSON trong JS có hai phương thức là:
+
+  - JSON.stringify(): chuyển object thành string.
+
+  - JSON.parse(): chuyển string thành object.
+
+**b) Phương thức JSON.stringify**
+
+phương thức JSON.stringify(user) nhận vào một object và trả về string biểu diễn object đã truyền vào.

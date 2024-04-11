@@ -453,3 +453,38 @@ let fIrstName, lAstName;
 
 fIrstName = aRr[0];
 lAstName = aRr[1];
+
+// Date(milliseconds)
+
+let Jan01_1970 = new Date(0); // 0 nghĩa là 01.01.1970 UTC+0
+alert(Jan01_1970);
+
+let Jan02_1970 = new Date(24 * 3600 * 1000); // 24 giờ sau
+alert(Jan02_1970); // 02.01.1970 UTC+0
+
+// today
+
+let today = new Date();
+console.log(today); // thời gian hiện tại
+
+today.setHours(0);
+console.log(today); // ngày hiện tại, nhưng giờ được set thành 0
+
+today.setHours(0, 0, 0, 0);
+console.log(today); // ngày hiện tại, nhưng giờ, phút, giây, mili giây đều = 0
+
+//  Date.parse(str)
+
+let ms = Date.parse("2012-12-19T11:30:50.217+07:00");
+console.log(ms); // 1355891450217  (timestamp)
+
+// JSON.stringify
+
+let useR = {
+  name: "Alex",
+  age: 28,
+};
+
+let json = JSON.stringify(useR);
+console.log(json); // {"name":"Alex","age":28}
+console.log(typeof json); // string
