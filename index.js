@@ -488,3 +488,17 @@ let useR = {
 let json = JSON.stringify(useR);
 console.log(json); // {"name":"Alex","age":28}
 console.log(typeof json); // string
+
+// json với các kiểu dữ liệu
+
+// số chuyển sang JSON vẫn là số
+console.log(JSON.stringify(1)); // 1
+
+// string chuyển sang JSON vẫn là string, nhưng sử dụng dấu ""
+console.log(JSON.stringify("test")); // "test"
+
+// boolean chuyển sang JSON vẫn là boolean
+console.log(JSON.stringify(true)); // true
+
+// mảng chuyển sang JSON
+console.log(JSON.stringify([1, 2, 3])); // [1,2,3]
